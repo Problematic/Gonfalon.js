@@ -1,4 +1,4 @@
-(function () {
+(function (Gonfalon) {
     QUnit.module('Unit');
     QUnit.test('gonfalon.js tests', function (assert) {
         var flags, cell, mask;
@@ -52,4 +52,4 @@
         mask.toggle('LIVE');
         assert.strictEqual(mask.has('LIVE'), true, 'Single values can also be toggled');
     });
-}());
+}(window.Gonfalon));
