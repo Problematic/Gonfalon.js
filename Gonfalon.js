@@ -1,4 +1,4 @@
-(function (exports) {
+(function (global) {
     "use strict";
 
     var Mask = function (set, flags) {
@@ -92,8 +92,12 @@
 
     Gonfalon.Mask = Mask;
 
-    if (typeof module !== 'undefined' && module.exports) {
-        exports = module.exports = Gonfalon;
+    if (typeof exports !== 'undefined') {
+        if (typeof module !== 'undefined' && module.exports) {
+            exports = module.exports = Gonfalon;
+        }
+        exports.Gonfalon = Gonfalon;
+    } else {
+        global.Gonfalon = Gonfalon;
     }
-    exports.Gonfalon = Gonfalon;
-}(typeof exports === 'undefined' ? this : exports));
+}(this));
