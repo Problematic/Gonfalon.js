@@ -51,5 +51,7 @@
 
         mask.toggle('LIVE');
         assert.strictEqual(mask.has('LIVE'), true, 'Single values can also be toggled');
+
+        assert.strictEqual((Gonfalon('foo', 'bar', 'baz')).value('bar'), 2, 'Should have safe-use constructor (same usage with and without `new` keyword)');
     });
 }(window.Gonfalon));

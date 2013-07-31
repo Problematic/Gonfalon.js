@@ -3,7 +3,7 @@ var Gonfalon = (function () {
 
     var Mask = function (set, flags) {
         if (!(this instanceof Mask)) {
-            return new Mask(flags);
+            return new Mask(set, flags);
         }
 
         flags = flags || [];
@@ -52,12 +52,12 @@ var Gonfalon = (function () {
 
 
     var Gonfalon = function (flags) {
-        if (!(this instanceof Gonfalon)) {
-            return new Gonfalon(flags);
-        }
-
         if (!(flags instanceof Array)) {
             flags = Array.prototype.slice.call(arguments);
+        }
+
+        if (!(this instanceof Gonfalon)) {
+            return new Gonfalon(flags);
         }
 
         this._next = 1;
