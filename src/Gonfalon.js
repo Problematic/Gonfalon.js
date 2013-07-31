@@ -1,4 +1,4 @@
-Gonfalon = (function () {
+var Gonfalon = (function () {
     "use strict";
 
     var Mask = function (set, flags) {
