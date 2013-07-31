@@ -84,12 +84,5 @@ var Gonfalon = (function () {
 
     Gonfalon.Mask = Mask;
 
-    if (typeof exports !== 'undefined') {
-        if (typeof module !== 'undefined' && module.exports) {
-            exports = module.exports = Gonfalon;
-        }
-        exports.Gonfalon = Gonfalon;
-    }
-
     return Gonfalon;
 }());
