@@ -1,13 +1,13 @@
 {
   "name": "gonfalon",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "bitmask micro-management",
   "main": "Gonfalon.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "grunt qunit"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
