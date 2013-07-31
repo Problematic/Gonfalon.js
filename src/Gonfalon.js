@@ -21,40 +21,32 @@ Gonfalon = (function () {
         return this._value;
     };
 
-    Mask.prototype.and = Mask.prototype.has = function (key) {
-        return (this.value() & this._set[key]) !== 0;
-    };
-
-    Mask.prototype.or = Mask.prototype.on = function (mask) {
+    Mask.prototype._maskValue = function (mask) {
         if (mask instanceof Mask) {
             mask = mask.value();
         } else if (typeof mask === 'string') {
             mask = this._set[mask];
         }
 
-        this._value |= mask;
+        return mask;
+    };
+
+    Mask.prototype.and = Mask.prototype.has = function (mask) {
+        return (this.value() & this._maskValue(mask)) !== 0;
+    };
+
+    Mask.prototype.or = Mask.prototype.on = function (mask) {
+        this._value |= this._maskValue(mask);
         return this._value;
     };
 
     Mask.prototype.xor = Mask.prototype.toggle = function (mask) {
-        if (mask instanceof Mask) {
-            mask = mask.value();
-        } else if (typeof mask === 'string') {
-            mask = this._set[mask];
-        }
-
-        this._value ^= mask;
+        this._value ^= this._maskValue(mask);
         return this._value;
     };
 
     Mask.prototype.nand = Mask.prototype.off = function (mask) {
-        if (mask instanceof Mask) {
-            mask = mask.value();
-        } else if (typeof mask === 'string') {
-            mask = this._set[mask];
-        }
-
-        this._value &= ~mask;
+        this._value &= ~this._maskValue(mask);
         return this._value;
     };
 
