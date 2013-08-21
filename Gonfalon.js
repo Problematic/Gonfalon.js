@@ -52,12 +52,14 @@ var Gonfalon = (function () {
 
 
     var Gonfalon = function (flags) {
-        if (!(flags instanceof Array)) {
-            flags = Array.prototype.slice.call(arguments);
+        if (!(this instanceof Gonfalon)) {
+            var tmp = new Gonfalon();
+            Gonfalon.apply(tmp, arguments);
+            return tmp;
         }
 
-        if (!(this instanceof Gonfalon)) {
-            return new Gonfalon(flags);
+        if (!(flags instanceof Array)) {
+            flags = Array.prototype.slice.call(arguments);
         }
 
         this._next = 1;
